@@ -59,9 +59,8 @@ sudo cp ~/emulatorcert.crt /usr/local/share/ca-certificates/
 ```
 sudo update-ca-certificates
 ```
-```
-sudo update-ca-trust
-```
+### IMPORTANTE: nas configurações do CodeSpace desabilitar a opção http.proxyStrictSSL
+
 ### Extensão do VSCode
 [Azure Databases](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb?wt.mc_id=AZ-MVP-5003638)
 ### Endpoint do simulador
@@ -74,3 +73,4 @@ AccountEndpoint=https://localhost:8081/;AccountKey=C2y6yDjf5/R+ob0N8A7Cgv30VRDJI
 
 ### Particionamento
 [Partitioning](https://learn.microsoft.com/en-us/azure/cosmos-db/partitioning-overview?wt.mc_id=AZ-MVP-5003638)
+
