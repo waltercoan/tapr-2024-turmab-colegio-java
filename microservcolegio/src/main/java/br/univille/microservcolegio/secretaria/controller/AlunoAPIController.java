@@ -8,20 +8,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.univille.microservcolegio.secretaria.entity.Aluno;
-import br.univille.microservcolegio.secretaria.repository.AlunoRepository;
+import br.univille.microservcolegio.secretaria.service.AlunoService;
+import java.util.List;
 
 @RestController
-@RequestMapping("/alunos")
-public class AlunoControllerAPI {
-    
+@RequestMapping("/api/v1/alunos")
+public class AlunoAPIController {
+
     @Autowired
-    private AlunoRepository repository;
+    private AlunoService service;
 
     @GetMapping
-    public ResponseEntity<Aluno> index(){
-        var aluno = new Aluno();
-        aluno.setNome("Zezinho");
-        repository.save(aluno);
-        return new ResponseEntity<Aluno>(aluno,HttpStatus.OK);
+    public ResponseEntity<List<Aluno>> get(){
+        var listaAlunos = service.getAll();
+
+        return new ResponseEntity<List<Aluno>>(listaAlunos,HttpStatus.OK);
     }
+
 }
