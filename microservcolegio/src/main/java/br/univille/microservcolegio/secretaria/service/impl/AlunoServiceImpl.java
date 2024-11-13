@@ -30,4 +30,29 @@ public class AlunoServiceImpl
     public Aluno save(Aluno aluno) {
         return repository.save(aluno);
     }
+
+    @Override
+    public Aluno update(String id, Aluno aluno) {
+        var buscaAlunoAntigo = repository.findById(id);
+        if(buscaAlunoAntigo.isPresent()){
+            var alunoAntigo = buscaAlunoAntigo.get();
+            alunoAntigo.setNome(aluno.getNome());
+
+            repository.save(alunoAntigo);
+            return alunoAntigo;
+        }
+        return null;
+    }
+
+    @Override
+    public Aluno delete(String id) {
+        var buscaAlunoAntigo = repository.findById(id);
+        if(buscaAlunoAntigo.isPresent()){
+            var alunoAntigo = buscaAlunoAntigo.get();
+            repository.delete(alunoAntigo);
+            return alunoAntigo;
+        }
+        return null;
+
+    }
 }
