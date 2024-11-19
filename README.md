@@ -457,3 +457,9 @@ dapr publish --publish-app-id tapr-2024-NOMEDOMICROSERVICO-java --pubsub service
 ```
 
 - Verificar no banco de dados se a entidade foi registrada.
+
+
+## Remover o histórico de cache do git
+```
+git rm -r --cached .
+```
